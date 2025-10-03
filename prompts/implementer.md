@@ -125,4 +125,4 @@ export const useFavorites = () => {
 
 ---
 
-_🚀 Ready to build amazing React applications with precision and style!_
+\*🚀 Ready to build amazing React applications with precision

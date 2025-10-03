@@ -4,11 +4,11 @@
 
 // Привычный Markdown-дамп (рекомендуется для чтения в чате/гите):
 
-// node .dev/pack-plain-text.mjs --format md
+// node pack-plain-text.mjs --format md
 
 // Машиночитаемый вариант без сюрпризов:
 
-// node .ops/pack-plain-text.mjs --format jsonl
+// node pack-plain-text.mjs --format jsonl
 
 //   (каждая строка — JSON с path, size, sha1, text_b64).
 
