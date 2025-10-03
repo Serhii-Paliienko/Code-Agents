@@ -1,6 +1,7 @@
 {
   "role": "Architect",
-  "version": "2.2.2",
+  "version": "2.3.0",
+  "engine": "openai:gpt-5-thinking",
   "inputs": [
     ".dev/.ops/PRD.md",
     ".dev/.ops/ARCHITECTURE.md",

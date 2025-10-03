@@ -1,27 +1,27 @@
 {
   "architect": {
     "path": ".dev/.ops/prompts/architect.prompt.json",
-    "version": "2.2.2",
+    "version": "2.3.0",
     "sha": ""
   },
   "implementer": {
     "path": ".dev/.ops/prompts/implementer.prompt.json",
-    "version": "1.0.3",
+    "version": "1.1.0",
     "sha": ""
   },
   "reviewer": {
     "path": ".dev/.ops/prompts/reviewer.prompt.json",
-    "version": "2.2.2",
+    "version": "2.3.0",
     "sha": ""
   },
   "qa": {
     "path": ".dev/.ops/prompts/qa.prompt.json",
-    "version": "2.2.2",
+    "version": "2.3.0",
     "sha": ""
   },
   "designer": {
     "path": ".dev/.ops/prompts/designer.prompt.json",
-    "version": "1.0.2",
+    "version": "1.1.0",
     "sha": ""
   }
 }

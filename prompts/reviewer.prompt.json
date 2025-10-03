@@ -1,6 +1,7 @@
 {
   "role": "Reviewer",
-  "version": "2.2.2",
+  "version": "2.3.0",
+  "engine": "openai:gpt-5-thinking",
   "outputs": ["REPORT.md"],
   "report_sections": [
     "SUMMARY",

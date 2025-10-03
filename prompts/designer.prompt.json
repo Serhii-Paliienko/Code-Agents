@@ -1,6 +1,7 @@
 {
   "role": "Designer",
-  "version": "1.0.2",
+  "version": "1.1.0",
+  "engine": "openai:gpt-5-thinking",
   "outputs": [
     "tokens.css",
     "list.module.css",

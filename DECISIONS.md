@@ -25,14 +25,9 @@
 - Date: 2025-10-01
 - Decision: Approve `routerPolicy.json` for engine selection and quality gates.
 
-## ADR-021: Implementer Guardrails — Aliases, Export Shapes, No Scaffolding (FINAL)
+## ADR-023: Centralize on GPT-5 Thinking; remove Sonnet
 
 - Date: 2025-10-03
-- Decision: Implementer must (a) respect configured path aliases from `tsconfig*.json` (no `@/*` if not configured), (b) preserve module export shapes (no default↔named flips unless all usages updated within the same patch), and (c) operate strictly in the current workspace. A **PREFLIGHT** section is mandatory in each delivery.
-
-## ADR-022: Reuse-First & Style Housekeeping
-
-- Date: 2025-10-03
-- Decision: Before adding any constant/component/style, scan the codebase and **reuse** existing ones. Clean dead exports, remove unused CSS selectors, prefer tokens via `var(--*)`, and keep JSX classNames in sync with CSS Modules.
+- Decision: All agent roles run on **openai:gpt-5-thinking** as primary. Remove Anthropic Sonnet references, files, and raw-URL ACK dependency. Prompts live as machine-readable `*.prompt.json`. ACK line kept but local.
 
 (Add new ADRs below)

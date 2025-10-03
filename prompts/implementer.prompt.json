@@ -1,11 +1,9 @@
 {
   "guide_id": "IMPL-GUIDE",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "role": "Implementer",
-  "ack": {
-    "required": true,
-    "start_with": "ACK IMPL-GUIDE v<x.y.z> (loaded)"
-  },
+  "engine": "openai:gpt-5-thinking",
+  "ack": { "required": true, "start_with": "ACK IMPL-GUIDE v<x.y.z> (loaded)" },
   "output": {
     "envelope": {
       "type": "per-file",
@@ -24,44 +22,41 @@
   },
   "preflight": [
     "Read tsconfig*.json and detect path aliases. Use ONLY configured aliases: @api/*, @components/*, @features/*, @store/*, @utils/*.",
-    "List export shapes for modules you will touch (default or named) and DO NOT flip shapes unless you update ALL usages in this patch.",
-    "Reuse-first: scan codebase for existing components/constants/styles and reuse/extend them; do not duplicate.",
-    "Style audit: ensure JSX className ↔ CSS Modules selector match; prefer CSS tokens via var(--*); list unused selectors/tokens to remove."
+    "List export shapes for modules you will touch (default or named). Do NOT flip shapes unless you update ALL usages in this patch.",
+    "Reuse-first: scan codebase for existing components/constants/styles; reuse/extend instead of duplicating.",
+    "Style audit: match JSX className to CSS Module selectors; prefer tokens via var(--*); list unused selectors/tokens to remove."
   ],
   "constraints": [
     "Operate in the CURRENT workspace (no scaffolding).",
-    "Respect aliases from tsconfig*.json (no \"@/\" if not configured).",
-    "Preserve export shapes (no default↔named flips) unless all usages are updated in the same patch.",
+    "Respect aliases from tsconfig*.json.",
+    "Preserve export shapes (no default↔named flips) unless all usages are updated.",
     "Do not change public API shapes; add adapters if needed.",
     "CSS Modules only; import styles as ./*.module.css.",
-    "TypeScript strict; no any; no !important (except SVG); SPA has no Helmet."
+    "TypeScript strict; no any; no !important (except SVG); SPA has no Helmet.",
+    "One file per envelope; no multi-file blobs."
   ],
   "tasks": [
-    "Implement catalog UL/LI semantics; a11y (aria-busy, visible focus).",
-    "Wire self-host fonts: preload + font-display: swap.",
+    "Catalog UL/LI semantics + a11y (aria-busy, visible focus).",
+    "Self-host fonts: preload + font-display: swap.",
     "TanStack Query v5: strict price, dedup, auto-load to limit; keep keys as in architecture.",
     "SPA: <Seo/>; Next: generateMetadata.",
-    "Lazy CSS by route/feature.",
+    "Route/feature-level lazy CSS.",
     "Housekeeping: remove dead exports/unused CSS; keep exports/aliases consistent.",
     "If structure changes, update .dev/.ops/* (ARCHITECTURE, FILE_TREE, DECISIONS, BUILD_NOTES, CHANGELOG, BACKLOG)."
   ],
   "acceptance": [
-    "No TS errors for imports/exports.",
-    "Aliases used exactly as configured; no \"@/\".",
+    "No TS import/export errors; aliases used exactly as configured.",
     "RQ keys: ['cars', filters, page/limit], ['car', id], ['brands']; strict price; dedup; auto-load-to-limit.",
     "Catalog uses ul[role=\"list\"] > li; a11y passes manual check.",
     "Fonts are self-hosted with preload+swap.",
-    "SEO: <Seo/> for SPA or generateMetadata for Next.",
-    "If changed structure, SoT updated."
+    "SEO: <Seo/> (SPA) or generateMetadata (Next).",
+    "If structure changed, SoT updated."
   ],
-  "style": {
-    "full_files_only": true,
-    "allow_why_comment": true
-  },
+  "style": { "full_files_only": true, "allow_why_comment": true },
   "guardrails": [
     "Always analyze the CURRENT codebase before creating anything.",
     "Never duplicate existing components/constants/styles; reuse-first.",
     "Never route all outputs to a single file; one envelope per file.",
-    "If uncertain, include a short PREFLIGHT with findings and assumptions."
+    "Include PREFLIGHT (aliases, export shapes, reuse map, style audit) before code."
   ]
 }

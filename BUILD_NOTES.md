@@ -68,65 +68,89 @@ git commit -m "chore: normalize endings + LFS for dumps"
 
 # Build Notes
 
-## 2025-10-03: Catalog UL/LI + Fonts + Query v5 Implementation
+## Endings & Attributes
 
-### ✅ Completed Features
+Add `.gitattributes` to enforce LF and mark binaries:
 
-#### 🔤 Font System
-
-- **Self-hosted Manrope fonts** (.woff2 format)
-- **Preload strategy** in index.html for critical font weights (400, 500, 600, 700)
-- **font-display: swap** for optimal loading performance
-- **Robust fallback stack** via CSS custom properties
-
-#### 🎯 TanStack Query v5 Contracts
-
-- **Query keys**: `['cars', filters, pageOrLimit]`, `['car', id]`, `['brands']`
-- **Strict defaults**: staleTime≈60s, gc≈10m, refetchOn\*=false, retry=1
-- **Strict price filtering**: Post-response filtering to match exact rentalPrice
-- **Deduplication**: Filter duplicate cars by ID in select function
-- **Auto-load to limit**: Default cap=200, configurable per query
-- **Placeholder data**: From cache for instant UI updates
-
-#### 🎨 Semantic HTML & Accessibility
-
-- **UL/LI semantics** for car listings with `role="list"`
-- **aria-busy** indicators during loading states
-- **Visible focus** styling with outline and offset
-- **Screen reader** friendly labels and descriptions
-- **Proper heading hierarchy** and landmark roles
-
-#### ⚡ Lazy CSS Loading
-
-- **Route-level CSS modules** for each page component
-- **Lazy component imports** with React.lazy()
-- **Suspense boundaries** with proper fallbacks
-- **CSS-in-CSS approach** (no runtime CSS-in-JS)
-
-#### 🔍 SEO Implementation
-
-- **Custom `<Seo/>` component** (React 19 friendly, no Helmet)
-- **Dynamic meta tags** via useEffect DOM manipulation
-- **Open Graph tags** for social sharing
-- **Canonical URLs** for proper indexing
-- **Structured content** with semantic HTML
-
-### 🔧 Technical Implementation
-
-#### API Layer
-
-```typescript
-// Centralized query keys
-queryKeys.cars(filters, pageOrLimit);
-queryKeys.car(id);
-queryKeys.brands();
-
-// Strict price filtering
-if (filters.rentalPrice) {
-  filteredCars = cars.filter((car) => car.rentalPrice === filters.rentalPrice);
-}
 ```
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.zip binary
+*.woff2 binary
+```
+
+## Git LFS
+
+```bash
+git lfs install
+git lfs track "*.jsonl"
+git add .gitattributes
+git commit -m "chore: normalize endings + LFS for dumps"
+```
+
+## Fonts
+
+- Self-host `.woff2` + `preload` + `font-display: swap` + robust fallback stack.
+
+## CSS
+
+- **CSS Modules only**; import styles **relatively** (`./*.module.css`)
+- Lazy CSS via code-splitting by routes/features
+
+## Semantics & A11y
+
+- Catalogs = `ul[role="list"] > li`; use `aria-busy` during background loads; ensure visible focus
+
+## TanStack Query v5
+
+- Keys / dedup / strict price / auto-load-to-limit must be implemented and covered by tests
+
+## Repo Hygiene
+
+- No spaces/cyrillic in paths; raw-URL friendly; move old jobs to `jobs/archive/`
+
+## Code Hygiene — Reuse-first & Cleanup
+
+- Before adding any constant/component/style: scan codebase and reuse existing
+- Remove dead exports / files created by mistake; align default vs named exports
+- **CSS Modules housekeeping:** remove unused selectors; ensure JSX `className` has matching selector; prefer tokens `var(--*)`
 
 ---
 
-> 🎯 **Quality Gate:** All items above must be implemented and verified before release
+## Current Implementation Status
+
+### ✅ Completed
+
+- React 18 + TypeScript strict setup
+- Vite build configuration
+- React Router v6 with lazy loading
+- CSS Modules with design tokens
+- Zustand store for favorites
+- Basic API layer with Axios
+- Component library (Button, Input, Select, Textarea)
+
+### 🔄 In Progress
+
+- TanStack Query v5 migration (currently using basic React Query)
+- Proper semantic markup for catalog (`ul > li`)
+- Error boundaries implementation
+
+### ⚠️ Needs Attention
+
+- **Query keys standardization**: Align with `['cars', filters, pageOrLimit]` pattern
+- **Strict price filtering**: Implement backend response validation
+- **Accessibility**: Add `aria-busy`, proper focus management
+- **CSS cleanup**: Remove unused selectors, ensure all classes have matching JSX
+- **Font optimization**: Self-host fonts with proper preloading
+
+### 🚨 Breaking Changes Required
+
+- Replace React Query with TanStack Query v5
+- Update catalog semantics to use `ul[role="list"] > li`
+- Implement custom `<Seo/>` component (remove any Helmet dependencies)
+- Standardize error handling through single Error Adapter
+
+---
+
+\_Last updated:
