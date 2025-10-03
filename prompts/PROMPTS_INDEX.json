@@ -1,55 +1,27 @@
 {
-  "📋 metadata": {
-    "description": "Prompt version tracking and SHA verification",
-    "lastUpdated": "2025-10-01",
-    "maintainer": "Code-Agents Team"
+  "architect": {
+    "path": ".dev/.ops/prompts/architect.prompt.json",
+    "version": "2.2.2",
+    "sha": ""
   },
-  "🎯 prompts": {
-    "architect": {
-      "path": ".dev/.ops/prompts/architect.md",
-      "version": "2.2.0",
-      "sha": "",
-      "role": "🏗️ Software Architect",
-      "description": "Dual-track SPA/Next architecture design"
-    },
-    "implementer": {
-      "path": ".dev/.ops/prompts/implementer.md",
-      "version": "1.0.0",
-      "sha": "",
-      "role": "👨‍💻 Senior Frontend Developer",
-      "description": "Code implementation with ACK protocol"
-    },
-    "reviewer": {
-      "path": ".dev/.ops/prompts/reviewer.md",
-      "version": "2.2.0",
-      "sha": "",
-      "role": "🔍 Code Review Lead",
-      "description": "Compliance verification and quality gates"
-    },
-    "qa": {
-      "path": ".dev/.ops/prompts/qa.md",
-      "version": "2.2.0",
-      "sha": "",
-      "role": "🧪 QA Lead",
-      "description": "Test planning and acceptance criteria"
-    },
-    "designer": {
-      "path": ".dev/.ops/prompts/designer.md",
-      "version": "1.0.0",
-      "sha": "",
-      "role": "🎨 Design Lead",
-      "description": "Frontend-centric visual design system"
-    }
+  "implementer": {
+    "path": ".dev/.ops/prompts/implementer.prompt.json",
+    "version": "1.0.3",
+    "sha": ""
   },
-  "🔧 automation": {
-    "shaCalculation": {
-      "algorithm": "SHA-256",
-      "note": "SHA values filled by automated script",
-      "command": "node scripts/update-prompt-sha.js"
-    },
-    "versionValidation": {
-      "semver": true,
-      "required": ["major", "minor", "patch"]
-    }
+  "reviewer": {
+    "path": ".dev/.ops/prompts/reviewer.prompt.json",
+    "version": "2.2.2",
+    "sha": ""
+  },
+  "qa": {
+    "path": ".dev/.ops/prompts/qa.prompt.json",
+    "version": "2.2.2",
+    "sha": ""
+  },
+  "designer": {
+    "path": ".dev/.ops/prompts/designer.prompt.json",
+    "version": "1.0.2",
+    "sha": ""
   }
 }

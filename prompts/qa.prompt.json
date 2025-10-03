@@ -1,0 +1,15 @@
+{
+  "role": "QA",
+  "version": "2.2.2",
+  "outputs": ["SMOKE.md", "TESTS_PLAN.md"],
+  "scope": [
+    "Filters incl. min>max normalization",
+    "Strict price",
+    "Dedup",
+    "Auto-load to limit",
+    "UX: skeleton/loader/empty/error",
+    "A11y: focus, aria-busy",
+    "Perf: no redundant refetch"
+  ],
+  "notes": ["E2E paused"]
+}

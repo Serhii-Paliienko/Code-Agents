@@ -1,49 +1,38 @@
-# 📝 ADR — Architecture Decision Records
+# ADR — Architecture Decision Records
 
-## 🚀 ADR-000: Initialization
+## ADR-000: Initialization
 
-- **Date:** 2025‑09‑24
-- **Decision:** Adopt `.dev/.ops` Source of Truth structure
-- **Impact:** Centralized documentation and governance
+- Date: 2025-09-24
+- Decision: Adopt `.dev/.ops` SoT structure.
 
-## 🔄 ADR-007: Dual‑Track SPA ↔ Next 15
+## ADR-007: Dual-Track SPA ↔ Next 15
 
-- **Date:** 2025‑10‑01
-- **Decision:** Maintain **SPA Baseline** and **Next 15 Migration Delta** in `ARCHITECTURE.md`
-- **Requirement:** Implementer must provide baseline + migration diff for SSR/routing/metadata changes
-- **Impact:** Unified development approach across frameworks
+- Date: 2025-10-01
+- Decision: Maintain **SPA Baseline** and **Next 15 Migration Delta** in `ARCHITECTURE.md`. Implementer must provide baseline + migration diff for changes affecting SSR/routing/metadata.
 
-## 🔍 ADR-SEO-SPA-NO-HELMET
+## ADR-SEO-SPA-NO-HELMET
 
-- **Date:** 2025‑10‑01
-- **Decision:** SPA uses custom **`<Seo/>`** component (no Helmet); Next uses `generateMetadata`
-- **Rationale:** React 19 compatibility and framework-specific optimization
-- **Impact:** Improved SEO performance and future-proofing
+- Date: 2025-10-01
+- Decision: SPA uses custom **`<Seo/>`** (no Helmet); Next uses `generateMetadata`.
 
-## 🔬 ADR-014…018: Deep Research (Draft Status)
+## ADR-019: Git LFS & Line Endings
 
-- **Topics Under Investigation:**
-  1. 🎨 **Fluid/Intrinsic Design** + CSS Modules (container queries, clamp‑type, anti‑patterns)
-  2. 🔤 **Font Performance** (variable WOFF2: preload, unicode‑range, cache strategies)
-  3. ⚡ **TanStack Query v5** (placeholderData cap/instant, infinite + dedup patterns)
-  4. 🚀 **Next 15 Migration Delta** (performance gains & potential risks)
-  5. 🤖 **Agent Pipelines & Privacy** (chat vs API, logging protocols, fallback strategies)
-- **Status:** **Draft** — Results documented in `research/` directory
-- **Timeline:** Summary integration pending
+- Date: 2025-10-01
+- Decision: Normalize to LF; large `*.jsonl` via LFS.
 
-## 📄 ADR-019: Git LFS & Line Endings
+## ADR-020: RouterPolicy
 
-- **Date:** 2025‑10‑01
-- **Decision:** Normalize all files to LF; Use Git LFS for large `*.jsonl` files
-- **Impact:** Consistent cross-platform development and efficient version control
+- Date: 2025-10-01
+- Decision: Approve `routerPolicy.json` for engine selection and quality gates.
 
-## 🎛️ ADR-020: AI Router Policy
+## ADR-021: Implementer Guardrails — Aliases, Export Shapes, No Scaffolding (FINAL)
 
-- **Date:** 2025‑10‑01
-- **Decision:** Implement `routerPolicy.json` for intelligent engine selection and quality gates
-- **Features:** Role-based routing, fallback chains, quality monitoring
-- **Impact:** Optimized AI assistance and consistent code quality
+- Date: 2025-10-03
+- Decision: Implementer must (a) respect configured path aliases from `tsconfig*.json` (no `@/*` if not configured), (b) preserve module export shapes (no default↔named flips unless all usages updated within the same patch), and (c) operate strictly in the current workspace. A **PREFLIGHT** section is mandatory in each delivery.
 
----
+## ADR-022: Reuse-First & Style Housekeeping
 
-> 📝 **Note:** Add new ADRs below following the established format
+- Date: 2025-10-03
+- Decision: Before adding any constant/component/style, scan the codebase and **reuse** existing ones. Clean dead exports, remove unused CSS selectors, prefer tokens via `var(--*)`, and keep JSX classNames in sync with CSS Modules.
+
+(Add new ADRs below)

@@ -1,0 +1,29 @@
+{
+  "role": "Architect",
+  "version": "2.2.2",
+  "inputs": [
+    ".dev/.ops/PRD.md",
+    ".dev/.ops/ARCHITECTURE.md",
+    ".dev/.ops/FILE_TREE.md",
+    ".dev/.ops/DECISIONS.md"
+  ],
+  "outputs": ["ARCHITECTURE.md", "FILE_TREE.md", "DECISIONS.md"],
+  "tasks": [
+    "Lock SPA Baseline and Next 15 Delta.",
+    "Define routes, state, TanStack Query v5 keys & invalidations.",
+    "Describe API contracts (mark Assumptions if unknown).",
+    "Security: cookies httpOnly/secure/sameSite; Error Adapter.",
+    "A11y/SEO: SPA <Seo/> / Next generateMetadata.",
+    "Update FILE_TREE.md; add OPEN QUESTIONS."
+  ],
+  "constraints": [
+    "TS strict; no any.",
+    "Requests only from @api.",
+    "CSS Modules only; ./*.module.css.",
+    "RQ keys exactly: ['cars', filters, page/limit], ['car', id], ['brands']; placeholderData cap=200; strict price; dedup; auto-load."
+  ],
+  "guardrails": [
+    "Do not change invariants without ADR.",
+    "Mark external dependencies as Assumptions."
+  ]
+}

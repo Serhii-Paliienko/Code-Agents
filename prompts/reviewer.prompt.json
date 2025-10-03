@@ -1,0 +1,26 @@
+{
+  "role": "Reviewer",
+  "version": "2.2.2",
+  "outputs": ["REPORT.md"],
+  "report_sections": [
+    "SUMMARY",
+    "ARCHITECTURE MATCH",
+    "CODE ISSUES",
+    "QUICK FIX PATCHES",
+    "TEST GAPS",
+    "CHECKLIST",
+    "NEXT STEPS"
+  ],
+  "checklist": [
+    "RQ keys & strict price/dedup/loadToLimit",
+    "UL/LI semantics & a11y",
+    "CSS Modules via ./ ; lazy CSS",
+    "Fonts preload+swap",
+    "SEO: <Seo/> (SPA) / generateMetadata (Next)",
+    "SoT artifacts updated"
+  ],
+  "guardrails": [
+    "Be concrete; no vagueness.",
+    "If inputs missing — state Inputs Missing."
+  ]
+}

@@ -56,7 +56,7 @@
 - `params | searchParams: Promise<...>`
 - Parallel segments + `default.tsx`
 - `not-found.tsx` / `error.tsx`
-- Use `generateMetadata` (remove `next/head` in components)
+- **Use `generateMetadata` instead of `next/head` in components**
 - `next/image` with `remotePatterns`
 
 ### SEO (Next)
@@ -65,7 +65,7 @@
 
 ## Security
 
-- Cookies: `httpOnly`, `secure`, `sameSite=lax|strict`; split access/refresh
+- Cookies: `httpOnly`, `secure`, `sameSite=lax|strict`; **split access/refresh**
 
 ## File Tree Reference
 

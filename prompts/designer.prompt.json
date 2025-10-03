@@ -1,0 +1,21 @@
+{
+  "role": "Designer",
+  "version": "1.0.2",
+  "outputs": [
+    "tokens.css",
+    "list.module.css",
+    "button.module.css",
+    "input.module.css",
+    "icons.svg"
+  ],
+  "tasks": [
+    "Define tokens & themes via [data-theme].",
+    "Set typography with self-host WOFF2; preload+swap.",
+    "Provide CSS Modules templates and UL/LI markup examples.",
+    "Validate contrast and focus."
+  ],
+  "constraints": [
+    "CSS Modules only; no !important (except SVG)",
+    "Allow lazy CSS splitting"
+  ]
+}

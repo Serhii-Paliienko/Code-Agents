@@ -1,47 +1,28 @@
-# 📈 Changelog
+# Changelog
 
-## 🚀 [2.2.0] — 2025‑10‑01
+## [2.2.3] — 2025-10-03
 
-### ✨ Major Features
+- Prompts converted to machine-readable JSON: \*.prompt.json (no visual formatting)
+- Implementer Guide bumped to **1.0.3** (reuse-first, preflight, no-scaffold, alias/export guardrails)
+- Added JOBS_USAGE.md (how to run JSONL jobs)
+- ADR-021/022 finalized (guardrails + reuse-first/style housekeeping)
+- Jobs pack paths/constraints aligned to .ops and envelopes
 
-- **📋 SoT Migration:** Moved to public `Code-Agents-v.2.1` with raw URL access
-- **🤖 Sonnet Protocol:** ACK acknowledgment system via raw GitHub URLs
-- **🔄 Dual-Track Support:** SPA↔Next architecture captured in ADR‑007
+## [2.2.1] — 2025-10-02
 
-### 🎨 Design & UX
+- English-only SoT docs
+- Fixed ARCHITECTURE (added `@api`, UL/LI semantics, `limit` wording)
+- Normalized FILE_TREE to `.dev/.vscode/`
+- Implementer Guide header now two lines (GUIDE_ID / VERSION)
 
-- **📐 CSS Invariants:** CSS Modules via `./` imports, fluid/intrinsic‑first approach
-- **🎯 Semantic HTML:** Catalog semantics standardized to **UL/LI**; `article` reserved for standalone content
-- **🔤 Typography:** Self‑hosted fonts with preload + swap optimization
+## [2.2.0] — 2025-10-01
 
-### ⚡ Performance & Data
-
-- **📊 React Query:** Strict price filtering, deduplication, auto‑load to limit contracts
-- **🎨 CSS Optimization:** Route/feature-level lazy CSS loading
-- **🔍 SEO Strategy:** SPA `<Seo/>` component / Next `generateMetadata` approach
-
-### 🛠️ Developer Experience
-
-- **📦 Repository Setup:** Git LFS integration, .gitattributes, path cleanup
-- **🎯 Job Management:** Updated initial job definitions and workflows
-- **📝 Documentation:** Comprehensive SoT structure with clear guidelines
-
-### 🔧 Technical Improvements
-
-- **🎛️ Router Policy:** AI engine selection and quality gate implementation
-- **🧹 Code Quality:** Duplicate removal, space-free naming conventions
-- **📁 File Organization:** Structured `.dev/.ops/` directory hierarchy
-
----
-
-## 🌱 [0.0.1] — 2025‑09‑24
-
-### 🏗️ Foundation
-
-- **📋 Initial Setup:** Established `.dev/.ops` Source of Truth structure
-- **📝 Documentation:** Core architecture and decision records framework
-- **🎯 Workflow:** Basic agent job and prompt system implementation
-
----
-
-> 📝 **Versioning:** Follow [Semantic Versioning](https://semver.org/) for all releases
+- SoT moved to public `Code-Agents-v.2.1` (raw access)
+- Sonnet ACK protocol (Implementer Guide via raw URL)
+- Invariants: **CSS Modules via `./`**, fluid/intrinsic-first, lazy CSS
+- Catalog semantics = **UL/LI**; `article` only for standalone content
+- TanStack Query contracts: strict price, dedup, auto-load to `limit`
+- SEO: SPA `<Seo/>` / Next `generateMetadata`
+- Dual-Track SPA↔Next captured in ADR-007
+- SoT cleanup plan (LFS, .gitattributes, duplicates, names) added
+- Initial Jobs updated
